@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, useLocation } from "react-router-dom";
+import AppRoutes from "./AppRouter";
+import Header from "./components/header/main-header";
+import { LikedRecipesProvider } from "./context/liked-contex";
 
-function App() {
+function MainApp() {
+  const location = useLocation();
+  const hideHeaderOnRecipeDetails = location.pathname.startsWith("/recipes/");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-full">
+      {!hideHeaderOnRecipeDetails && <Header />}
+      <AppRoutes />
     </div>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <LikedRecipesProvider>
+      <BrowserRouter>
+        <MainApp />
+      </BrowserRouter>
+    </LikedRecipesProvider>
+  );
+}
