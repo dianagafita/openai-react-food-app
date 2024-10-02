@@ -2,6 +2,8 @@
 
 This application allows users to briefly describe what they want to eat, and the app will fetch a list of recipes based on their description using AI. Users can then view the details of each recipe, including ingredients and cooking instructions, and add them to a list of favorites receipts.
 
+[-> VIEW DEMO](https://food-ai-seven.vercel.app/)
+
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
